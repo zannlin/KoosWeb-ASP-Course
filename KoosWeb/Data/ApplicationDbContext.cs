@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KoosWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace KoosWeb.Data
 {
@@ -8,5 +9,7 @@ namespace KoosWeb.Data
         {
             
         }
-    }
+
+        public DbSet<Category> Categories { get; set; }
+    }   
 }

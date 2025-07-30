@@ -26,7 +26,11 @@ namespace KoosWeb.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            if(ModelState.IsValid)
+            if(obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The Display Order cannot exactly match the Name.");
+            }
+            if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
